@@ -6,9 +6,14 @@ if "serial_ales" not in st.session_state:
     st.session_state["serial_ales"] = ""
     st.title("Pagina nu a fost gasita")
 else:
-    st.title(st.session_state["serial_ales"].title)
-    st.session_state["serial_ales"].scrape_video()
-    st.session_state.serial_ales = [x for x in st.session_state["serial_ales"].videos]
+    try:
+        st.title(st.session_state["serial_ales"].title)
+        st.session_state["serial_ales"].scrape_video()
+        st.session_state.serial_ales = [
+            x for x in st.session_state["serial_ales"].videos
+        ]
+    except:
+        st.title("Pagina nu a fost gasita")
 
 
 if len(st.session_state.serial_ales) > 0:
