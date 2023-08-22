@@ -23,7 +23,9 @@ if len(st.session_state.serial_ales) > 0:
 
         iframe = episod.split("video/")[1]
         # print(iframe)
-        ifram = """ <iframe style="width: 100%; min-height: 360px; overflow: auto;" src="//ok.ru/videoembed/{}" frameborder="0" allow="autoplay" allowfullscreen="true"></iframe>""".format(
+        ifram = """
+<iframe style="width: 100%; height: 100vh; border: none;" src="//ok.ru/videoembed/{}" allowfullscreen="true"></iframe>
+""".format(
             iframe
         )
         st.markdown(ifram, unsafe_allow_html=True)
