@@ -7,7 +7,7 @@ if "serial_ales" not in st.session_state:
     st.title("Pagina nu a fost gasita")
 else:
     try:
-        st.title(st.session_state["serial_ales"].title)
+        st.title(st.session_state["serial_ales"].title + " - Pagina de Redirecționare")
         st.session_state["serial_ales"].scrape_video()
         st.session_state.serial_ales = [
             x for x in st.session_state["serial_ales"].videos
@@ -22,9 +22,10 @@ if len(st.session_state.serial_ales) > 0:
         st.markdown(f"## {val}")
 
         iframe = episod.split("video/")[1]
+        # st.video(video_url)
         # print(iframe)
         ifram = """
-<iframe style="width: 100%; height: 100vh; border: none;" src="//ok.ru/videoembed/{}" allowfullscreen="true"></iframe>
+<iframe style="width: 100%; height: 100vh; " src="//ok.ru/videoembed/{}" allowFullScreen="true" frameborder="0" webkitAllowFullScreen="true" mozAllowFullScreen="true"></iframe>
 """.format(
             iframe
         )
