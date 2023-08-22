@@ -7,7 +7,7 @@ from streamlit_extras.switch_page_button import switch_page
 
 st.set_page_config(page_title="Atanase Streamlit", page_icon="💪")
 
-st.title("Seriale Coreene Andrei ")
+st.title("Seriale 📺")
 st.text("")
 
 st.sidebar.success("Select a page above.")
