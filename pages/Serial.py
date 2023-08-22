@@ -1,13 +1,18 @@
 import streamlit as st
 
-st.set_page_config(page_title="Pagina de Redirecționare", page_icon="🚀")
 
+st.set_page_config(
+    page_title="Pagina de Redirecționare",
+    page_icon=":smiley:",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 if "serial_ales" not in st.session_state:
     st.session_state["serial_ales"] = ""
     st.title("Pagina nu a fost gasita")
 else:
     try:
-        st.title(st.session_state["serial_ales"].title + " - Pagina de Redirecționare")
+        st.title(st.session_state["serial_ales"].title + "")
         st.session_state["serial_ales"].scrape_video()
         st.session_state.serial_ales = [
             x for x in st.session_state["serial_ales"].videos
@@ -25,7 +30,7 @@ if len(st.session_state.serial_ales) > 0:
         # st.video(video_url)
         # print(iframe)
         ifram = """
-<iframe style="width: 100%; height: 100vh; " src="//ok.ru/videoembed/{}" allowFullScreen="true" frameborder="0" webkitAllowFullScreen="true" mozAllowFullScreen="true"></iframe>
+<iframe width="100%" height="500px" src="//ok.ru/videoembed/{}" allowfullscreen frameborder="0" webkitAllowFullScreen="true" mozAllowFullScreen="true"></iframe>
 """.format(
             iframe
         )
